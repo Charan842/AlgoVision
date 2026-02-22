@@ -1,0 +1,56 @@
+/* Footer main */
+.footer {
+  background-color: #111827;
+  color: white;
+  padding: 40px 20px;
+  margin-top: 40px;
+}
+
+/* Container layout */
+.footer-container {
+  max-width: 1100px;
+  margin: auto;
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 30px;
+}
+
+/* Sections */
+.footer-section {
+  flex: 1;
+  min-width: 220px;
+}
+
+/* Titles */
+.footer-section h3,
+.footer-section h4 {
+  margin-bottom: 15px;
+  color: blue;
+}
+
+/* Text */
+.footer-section p {
+  margin: 6px 0;
+  color: #d1d5db;
+}
+
+/* Links */
+.footer-section ul {
+  list-style: none;
+  padding: 0;
+}
+
+.footer-section ul li {
+  margin-bottom: 8px;
+}
+
+.footer-section a {
+  text-decoration: none;
+  color: #d1d5db;
+  transition: 0.3s;
+}
+
+.footer-section a:hover {
+  color: blue;
+}
