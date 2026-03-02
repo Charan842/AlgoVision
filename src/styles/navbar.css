@@ -1,0 +1,22 @@
+*{
+    margin:0
+}
+.navbar{
+    background: linear-gradient(135deg, #667eea, #764ba2);
+    display:flex;
+    justify-content: space-between;
+    height:10vh;
+    padding-top: 3vh;
+}
+.logo{
+    padding-left: 3%;
+}
+.nav-links ul{
+    display: flex;
+    padding-right: 3%;
+    flex-direction: row;
+    gap:20px;
+}
+.nav-links{
+    padding-right: 3%;
+}

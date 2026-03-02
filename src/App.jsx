@@ -1,8 +1,8 @@
 import Login from "./pages/Login"
-
+import Navroutes from "./Navigation/Navroutes";
 function App(){
   return(
-    <Login/>
+    <Navroutes />
   );
 }
 export default App;

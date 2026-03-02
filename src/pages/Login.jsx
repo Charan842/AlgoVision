@@ -1,11 +1,18 @@
 import { useState } from "react";
-import  '../styles/login.css'
+import  '../styles/login.css';
+import { useNavigate } from "react-router-dom";
+
 function Login(){
+  const navigate = useNavigate();
   const [username,setUsername]=useState("")
   const [password,setPassword]=useState("")
+  function handleSubmit(e){
+       e.preventDefault();
+       navigate("/home");
+  }
   return(
     <div className="fields" >
-      <form className="card">
+      <form className="card" onSubmit={handleSubmit}>
         <h1>Algo Vision</h1>
         <div className="username">
           <label htmlFor="username">Username</label>
@@ -23,4 +30,4 @@ function Login(){
     
   );
 }
-export default Login
+export default Login;
