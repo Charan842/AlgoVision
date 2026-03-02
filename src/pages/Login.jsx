@@ -1,59 +1,26 @@
 import { useState } from "react";
-import "../styles/login.css";
-
-function Login() {
-
-  const [formData, setFormData] = useState({
-    email: "",
-    password: ""
-  });
-
-  const handleChange = (e) => {
-    setFormData({
-      ...formData,
-      [e.target.name]: e.target.value
-    });
-  };
-
-  const ValidateLogin = (e) => {
-    e.preventDefault();
-
-    if (!formData.email || !formData.password) {
-      alert("All fields are required!");
-      return;
-    }
-
-    alert("Login Successful ✅");
-    console.log(formData);
-  };
-
-  return (
-    <div className="login-container">
-      <form className="login-form" onSubmit={ValidateLogin}>
-        <h1>Welcome to the Login Page</h1>
-
-        <label htmlFor="email">Email</label>
-        <input
-          type="email"
-          name="email"
-          placeholder="Enter email"
-          value={formData.email}
-          onChange={handleChange}
-        />
-
-        <label htmlFor="password">Password</label>
-        <input
-          type="password"
-          name="password"
-          placeholder="Enter password"
-          value={formData.password}
-          onChange={handleChange}
-        />
-
-        <button type="submit">Login</button>
-      </form>
+import  '../styles/login.css'
+function Login(){
+  const [username,setUsername]=useState("")
+  const [password,setPassword]=useState("")
+  return(
+    <div className="fields" >
+      <form className="card">
+        <h1>Algo Vision</h1>
+        <div className="username">
+          <label htmlFor="username">Username</label>
+          <input type="text" id="username" name="username" value={username} onChange={(e)=>setUsername(e.target.value)}/>
+        </div>
+         <div>
+          <label htmlFor="password">Password</label>
+          <input type="password" id="password" name="password" value={password} onChange={(e)=>setPassword(e.target.value)}/>
+        </div>
+         <div >
+          <button type="submit">Login</button>
+        </div>
+    </form>
     </div>
+    
   );
 }
-
-export default Login;
+export default Login
