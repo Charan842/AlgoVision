@@ -1,66 +1,122 @@
-/* Full page center */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Segoe UI", Roboto, sans-serif;
+}
+
+
 .fields {
   height: 100vh;
   display: flex;
   justify-content: center;
   align-items: center;
-  background: linear-gradient(135deg, #667eea, #764ba2);
-  font-family: Arial, sans-serif;
+  background: linear-gradient(135deg, #2563eb, #1e3a8a);
 }
 
-/* Card */
+
 .card {
+  width: 380px;
+  padding: 40px 35px;
   background: #ffffff;
-  padding: 40px;
-  width: 350px;
-  border-radius: 12px;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+  border-radius: 16px;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
   display: flex;
   flex-direction: column;
   gap: 20px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-/* Labels */
-.card label {
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 25px 50px rgba(0, 0, 0, 0.25);
+}
+
+.card h1 {
+  text-align: center;
+  font-size: 28px;
+  font-weight: 700;
+  color: #0f172a;
+  margin-bottom: 10px;
+  letter-spacing: 1px;
+}
+
+
+.card div {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+
+label {
   font-size: 14px;
-  margin-bottom: 6px;
-  font-weight: 500;
+  font-weight: 600;
+  color: #334155;
 }
 
-/* Input fields */
-.card input {
-  padding: 10px;
-  border: 1px solid #ccc;
-  border-radius: 6px;
+
+input {
+  padding: 12px 14px;
+  border-radius: 8px;
+  border: 1.5px solid #cbd5e1;
   outline: none;
-  transition: 0.3s ease;
-  width: 100%;
+  font-size: 14px;
+  transition: all 0.3s ease;
 }
 
-/* Input focus effect */
-.card input:focus {
-  border-color: #667eea;
-  box-shadow: 0 0 5px rgba(102, 126, 234, 0.5);
+input:focus {
+  border-color: #2563eb;
+  box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.2);
 }
 
-/* Button */
-.card button {
-  padding: 10px;
+
+button {
+  margin-top: 10px;
+  padding: 12px;
   border: none;
-  border-radius: 6px;
-  background: #667eea;
-  color: white;
-  font-size: 16px;
+  border-radius: 8px;
+  background: #2563eb;
+  color: #ffffff;
+  font-size: 15px;
+  font-weight: 600;
   cursor: pointer;
-  transition: 0.3s ease;
+  transition: all 0.3s ease;
 }
 
-/* Button hover */
-.card button:hover {
-  background: #5a67d8;
+button:hover {
+  background: #1d4ed8;
+  transform: translateY(-2px);
 }
-h1{
-    font-size:25px;
-    color:#5a67d8;
-    text-align: center;
+
+button:active {
+  transform: scale(0.98);
+}
+
+.signup {
+  margin-top: 10px;
+  text-align: center;
+  font-size: 14px;
+  color: #64748b;
+}
+
+.signup a {
+  color: #2563eb;
+  font-weight: 600;
+  text-decoration: none;
+  margin-left: 4px;
+  transition: color 0.3s ease, text-decoration 0.3s ease;
+}
+
+.signup a:hover {
+  color: #1d4ed8;
+  text-decoration: underline;
+}
+
+@media (max-width: 420px) {
+  .card {
+    width: 90%;
+    padding: 30px 20px;
+  }
 }
