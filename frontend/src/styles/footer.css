@@ -1,0 +1,43 @@
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Lucida Sans','Lucida Sans Regular','Lucida Grande','Lucida Sans Unicode',Geneva,Verdana,sans-serif;
+}
+
+body{
+    min-height:100vh;
+    display:flex;
+    flex-direction:column;
+}
+
+.footer-box{
+    background: linear-gradient(135deg, #2563eb, #264bb1);
+    padding:20px;
+    margin-top:70vh;
+    display:flex;
+    flex-direction:column;
+    gap:20px;
+    color:white;
+}
+
+.about{
+    text-align:center;
+}
+
+.contact ul{
+    display:flex;
+    justify-content:center;
+    gap:30px;
+    list-style:none;
+}
+
+.contact a{
+    text-decoration:none;
+    color:white;
+}
+
+.copyright p{
+    text-align:center;
+    font-size:14px;
+}

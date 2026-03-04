@@ -2,7 +2,7 @@
     margin:0
 }
 .navbar{
-    background: linear-gradient(135deg, #667eea, #764ba2);
+    background: linear-gradient(135deg, #2563eb, #3259c7);
     display:flex;
     justify-content: space-between;
     height:10vh;
