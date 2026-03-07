@@ -2,15 +2,35 @@ import { useState } from "react";
 import  '../styles/login.css';
 import { useNavigate } from "react-router-dom";
 
-function Login(){
+function Signup(){
   const navigate = useNavigate();
   const [username,setUsername]=useState("")
   const [password,setPassword]=useState("")
   const [email,setEmail]=useState("")
-  function handleSubmit(e){
-       e.preventDefault();
-       navigate("/home");
+  const handleSubmit = async (e) => {
+  e.preventDefault();
+
+  try{
+    const result= await fetch("http://localhost:8426/signup",{
+      method:"POST",
+      headers:{
+        "Content-Type":"application/json"
+      },
+      body: JSON.stringify({
+        username,
+        email,
+        password
+      })
+    });
+
+    const data = await result.json();
+    console.log(data);
+    navigate("/")
+
+  }catch(err){
+    console.error(err);
   }
+};
   return(
     <div className="fields" >
       <form className="card" onSubmit={handleSubmit}>
@@ -38,4 +58,4 @@ function Login(){
     
   );
 }
-export default Login;
+export default Signup;

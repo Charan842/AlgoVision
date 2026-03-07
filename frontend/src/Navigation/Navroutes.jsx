@@ -4,7 +4,7 @@ import Login from "../pages/Login";
 import Algorithms from "../pages/Algorithms";
 import Progress from "../pages/Progress";
 import Profile from "../pages/Profile";
-import Signup from "../pages/signup";
+import Signup from "../pages/Signup";
 
 
 function Navroutes(){
