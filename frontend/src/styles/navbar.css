@@ -9,9 +9,11 @@
     padding-top: 3vh;
 }
 .logo{
+    color: white;
     padding-left: 3%;
 }
 .nav-links ul{
+    color: white;
     display: flex;
     padding-right: 3%;
     flex-direction: row;
