@@ -11,7 +11,7 @@ function Signup(){
   e.preventDefault();
 
   try{
-    const result= await fetch("http://localhost:8426/signup",{
+    const result= await fetch("http://localhost:8426/api/auth/signup",{
       method:"POST",
       headers:{
         "Content-Type":"application/json"
@@ -25,7 +25,14 @@ function Signup(){
 
     const data = await result.json();
     console.log(data);
-    navigate("/")
+    if(result.status === 400){
+      alert("email already existing");
+    }
+    else if(result.status === 201){
+      alert("you are registerd bastard!!!");
+      navigate("/");
+    }
+    
 
   }catch(err){
     console.error(err);

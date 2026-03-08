@@ -1,19 +1,26 @@
-import {User} from "../models/user.js";
+import User from "../models/user.js";
 import bcrypt from "bcrypt";
 
 export const registerUser = async (req,res)=>{
   try{
       const {username,email,password} = req.body;
+      const existingUser = await User.findOne({email});
+      if (existingUser){
+        console.log("inside");
+        return res.status(400).json({
+        message:"email already existing "
+        });
+      }
       const hp = await bcrypt.hash(password,10);
 
-    console.log({username,email,password});
-       const user=new User({
+    console.log({username,email});
+    const user=new User({
         username:username,
         email:email,
         password:hp
     });
     await user.save();
-    res.json({
+    res.status(201).json({
         message:"User received successfully"
     });
  

@@ -8,7 +8,7 @@ function Login(){
   const [password,setPassword]=useState("")
   const handleSubmit = async(e)=>{
     e.preventDefault();
-    const result=await fetch("http://localhost:8426/login",{
+    const result=await fetch("http://localhost:8426/api/auth/login",{
       method:"POST",
       headers:{"Content-Type":"application/json"},
       body:JSON.stringify({

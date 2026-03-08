@@ -7,7 +7,9 @@ const userschema = new schema({
         required:true
     },
     email:{
-        type:String
+        type:String,
+        required:true,
+        unique:true
     },
     password:{
         type:String,
