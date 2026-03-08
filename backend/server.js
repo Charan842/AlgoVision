@@ -1,30 +1,22 @@
 import express from "express";
-import bodyParser from "body-parser";
-import mongoose from "mongoose";
-import User from './models/user.js';
+import cors from "cors";
+import connectDB from "./config/db.js";
+import authRoutes from "./routes/authRoutes.js";
 
 const app = express();
 const port = 8426;
 
 const dburl = "mongodb+srv://Charan842:cherry%40842@user.rznz2nr.mongodb.net/AlgoVision?retryWrites=true&w=majority";
 
-app.use(bodyParser.json());
+app.use(cors());  
+app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
 
-mongoose.connect(dburl)
-.then(() => {
-    app.listen(port, () => {
+connectDB().then(()=>{
+    app.listen(port,()=>{
         console.log(`Server running on http://localhost:${port}`);
     });
 })
-.catch(err => console.log(err));
+.catch(err=>console.log(err));
 
-
-app.get('/all', (req, res) => {
-
-   User.find().then((resl)=>{
-    res.send(resl)
-   }).catch((err)=>{
-    console.log(err)
-   });
-
-});
+app.use("/api/auth",authRoutes);
