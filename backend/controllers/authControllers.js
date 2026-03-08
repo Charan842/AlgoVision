@@ -1,4 +1,4 @@
-import {User} from "../models/user";
+import {User} from "../models/user.js";
 import bcrypt from "bcrypt";
 
 export const registerUser = async (req,res)=>{
@@ -39,8 +39,9 @@ export const loginUser = async (req,res)=>{
         message:"User not found"
       });
     }
+    const isMatch = await bcrypt.compare(password,user.password);
 
-    if(user.password !== password){
+    if(!isMatch){
       return res.status(401).json({
         message:"Invalid password"
       });
@@ -51,8 +52,7 @@ export const loginUser = async (req,res)=>{
       user:user
     });
 
-  }
-  catch(err){
+  }catch(err){
     console.log(err);
     res.status(500).json({
       message:"Server error"
