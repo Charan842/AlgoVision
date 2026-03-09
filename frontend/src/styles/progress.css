@@ -1,0 +1,65 @@
+.progress-page .progress-main {
+    width: 100%;
+    min-height: 70vh;
+    padding: 1.5rem 0 4rem;
+    display: grid;
+    place-items: center;
+    position: relative;
+    z-index: 1;
+}
+
+.progress-page .progress-placeholder {
+    width: min(760px, calc(100% - 2rem));
+    padding: clamp(1.5rem, 4vw, 3rem);
+    border-radius: 32px;
+    text-align: center;
+    background: linear-gradient(160deg, rgba(255, 255, 255, 0.97), rgba(245, 239, 251, 0.96));
+    border: 1px solid rgba(167, 132, 214, 0.24);
+    box-shadow: 0 30px 80px rgba(74, 56, 107, 0.12);
+}
+
+.progress-page .progress-badge {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 2.2rem;
+    padding: 0 0.95rem;
+    border-radius: 999px;
+    border: 1px solid rgba(196, 173, 233, 0.92);
+    background: rgba(243, 236, 250, 0.92);
+    color: #19141f;
+    font-size: 0.82rem;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+}
+
+.progress-page .progress-title {
+    margin: 1rem 0 0.75rem;
+    color: #17131d;
+    font-family: "Sora", "Space Grotesk", "Segoe UI", sans-serif;
+    font-size: clamp(2.6rem, 7vw, 4.6rem);
+    font-weight: 900;
+    line-height: 0.95;
+    letter-spacing: -0.08em;
+}
+
+.progress-page .progress-copy {
+    margin: 0 auto;
+    max-width: 38rem;
+    color: #4f4561;
+    font-size: clamp(1rem, 2vw, 1.08rem);
+    line-height: 1.8;
+}
+
+@media (max-width: 640px) {
+    .progress-page .progress-main {
+        padding: 1rem 0 3rem;
+    }
+
+    .progress-page .progress-placeholder {
+        width: calc(100% - 1.5rem);
+        padding: 1.4rem;
+        border-radius: 24px;
+    }
+}

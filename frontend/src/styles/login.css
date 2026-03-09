@@ -1,122 +1,219 @@
-
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  font-family: "Segoe UI", Roboto, sans-serif;
-}
-
-
+/* Auth pages now use the same black and purple palette as the Home page. */
 .fields {
-  height: 100vh;
+  --auth-bg: #05030a;
+  --auth-panel: rgba(17, 12, 28, 0.86);
+  --auth-panel-strong: rgba(30, 20, 48, 0.95);
+  --auth-border: rgba(168, 85, 247, 0.18);
+  --auth-text: #f4efff;
+  --auth-text-muted: #c2b3de;
+  --auth-accent: #b06cff;
+  --auth-accent-strong: #7c3aed;
+  min-height: 100vh;
+  padding: 2rem 1rem;
   display: flex;
-  justify-content: center;
   align-items: center;
-  background: linear-gradient(135deg, #ff7e5f, #feb47b);
+  justify-content: center;
+  position: relative;
+  overflow: hidden;
+  isolation: isolate;
+  font-family: "Space Grotesk", "Segoe UI", sans-serif;
+  background:
+    radial-gradient(circle at 12% 12%, rgba(176, 108, 255, 0.2), transparent 24%),
+    radial-gradient(circle at 86% 18%, rgba(110, 57, 192, 0.2), transparent 22%),
+    radial-gradient(circle at 50% 100%, rgba(168, 85, 247, 0.1), transparent 36%),
+    linear-gradient(145deg, #0a0611 0%, #05030a 48%, #100818 100%);
 }
 
+.fields::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background:
+    linear-gradient(rgba(244, 239, 255, 0.015) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(244, 239, 255, 0.015) 1px, transparent 1px);
+  background-size: 64px 64px;
+  opacity: 0.45;
+}
 
+.fields::after {
+  content: "";
+  position: absolute;
+  right: -7rem;
+  bottom: 8rem;
+  width: 20rem;
+  height: 20rem;
+  border-radius: 50%;
+  pointer-events: none;
+  background: radial-gradient(circle, rgba(176, 108, 255, 0.18), transparent 68%);
+  filter: blur(18px);
+}
+
+/* Form card mirrors the Home hero surface for a consistent project identity. */
 .card {
-  width: 380px;
-  padding: 40px 35px;
-  background: #ffffff;
-  border-radius: 16px;
-  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+  position: relative;
+  z-index: 1;
+  width: min(420px, 100%);
+  padding: clamp(1.75rem, 4vw, 2.5rem);
   display: flex;
   flex-direction: column;
-  gap: 20px;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  gap: 1.1rem;
+  border-radius: 28px;
+  background:
+    linear-gradient(
+      160deg,
+      var(--auth-panel-strong),
+      var(--auth-panel)
+    );
+  border: 1px solid var(--auth-border);
+  box-shadow: 0 28px 70px rgba(0, 0, 0, 0.34);
+  backdrop-filter: blur(18px);
+  transition: transform 0.28s ease, box-shadow 0.28s ease, border-color 0.28s ease;
+}
+
+.card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  pointer-events: none;
+  background:
+    radial-gradient(circle at top right, rgba(176, 108, 255, 0.16), transparent 28%),
+    linear-gradient(120deg, transparent 15%, rgba(244, 239, 255, 0.05) 50%, transparent 85%);
 }
 
 .card:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 25px 50px rgba(0, 0, 0, 0.25);
+  transform: translateY(-4px);
+  border-color: rgba(168, 85, 247, 0.24);
+  box-shadow: 0 34px 84px rgba(0, 0, 0, 0.38);
 }
 
 .card h1 {
+  position: relative;
+  z-index: 1;
+  margin: 0 0 0.4rem;
   text-align: center;
-  font-size: 28px;
-  font-weight: 700;
-  color: #0f172a;
-  margin-bottom: 10px;
-  letter-spacing: 1px;
+  color: var(--auth-text);
+  font-family: "Sora", "Space Grotesk", "Segoe UI", sans-serif;
+  font-size: clamp(2rem, 5vw, 2.45rem);
+  font-weight: 800;
+  letter-spacing: -0.04em;
 }
-
 
 .card div {
+  position: relative;
+  z-index: 1;
   display: flex;
   flex-direction: column;
-  gap: 6px;
+  gap: 0.45rem;
 }
 
-
-label {
-  font-size: 14px;
+.fields label {
+  color: var(--auth-text-muted);
+  font-size: 0.9rem;
   font-weight: 600;
-  color: #334155;
+  letter-spacing: 0.03em;
 }
 
-
-input {
-  padding: 12px 14px;
-  border-radius: 8px;
-  border: 1.5px solid #cbd5e1;
+/* Inputs use muted panels with a violet focus state. */
+.fields input {
+  width: 100%;
+  padding: 0.92rem 1rem;
+  border-radius: 14px;
+  border: 1px solid rgba(168, 85, 247, 0.14);
+  background: rgba(244, 239, 255, 0.04);
+  color: var(--auth-text);
+  font-size: 0.96rem;
   outline: none;
-  font-size: 14px;
-  transition: all 0.3s ease;
+  transition:
+    border-color 0.24s ease,
+    background-color 0.24s ease,
+    box-shadow 0.24s ease,
+    transform 0.24s ease;
 }
 
-input:focus {
-  border-color: linear-gradient(135deg, #ff7e5f, #feb47b);
-  box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.2);
+.fields input::placeholder {
+  color: rgba(194, 179, 222, 0.62);
 }
 
+.fields input:focus {
+  border-color: rgba(176, 108, 255, 0.34);
+  background: rgba(244, 239, 255, 0.06);
+  box-shadow: 0 0 0 4px rgba(168, 85, 247, 0.14);
+}
 
-button {
-  margin-top: 10px;
-  padding: 12px;
-  border: none;
-  border-radius: 8px;
-  background: linear-gradient(135deg, #ff7e5f, #feb47b);
-  color: #ffffff;
-  font-size: 15px;
-  font-weight: 600;
+/* Buttons inherit the violet metallic gradient and subtle lift from Home. */
+.fields button {
+  width: 100%;
+  margin-top: 0.35rem;
+  padding: 0.95rem 1rem;
+  border: 1px solid rgba(168, 85, 247, 0.24);
+  border-radius: 999px;
+  background: linear-gradient(135deg, rgba(176, 108, 255, 0.24), rgba(76, 29, 149, 0.42));
+  color: var(--auth-text);
+  font-size: 0.98rem;
+  font-weight: 700;
+  letter-spacing: 0.02em;
   cursor: pointer;
-  transition: all 0.3s ease;
+  transition:
+    transform 0.24s ease,
+    box-shadow 0.24s ease,
+    border-color 0.24s ease,
+    background-color 0.24s ease;
 }
 
-button:hover {
-  background: linear-gradient(135deg, #ff7e5f, #feb47b);
+.fields button:hover,
+.fields button:focus-visible {
   transform: translateY(-2px);
+  border-color: rgba(216, 180, 254, 0.32);
+  box-shadow: 0 16px 28px rgba(0, 0, 0, 0.22);
+  outline: none;
 }
 
-button:active {
-  transform: scale(0.98);
+.fields button:active {
+  transform: translateY(0);
 }
 
 .signup {
-  margin-top: 10px;
+  position: relative;
+  z-index: 1;
+  margin-top: 0.35rem;
   text-align: center;
-  font-size: 14px;
-  color: #64748b;
+  color: rgba(194, 179, 222, 0.82);
+  font-size: 0.92rem;
+  line-height: 1.6;
 }
 
 .signup a {
-  color: #ff7e5f;
-  font-weight: 600;
+  color: var(--auth-text);
+  font-weight: 700;
   text-decoration: none;
-  margin-left: 4px;
-  transition: color 0.3s ease, text-decoration 0.3s ease;
+  transition: color 0.24s ease, text-shadow 0.24s ease;
 }
 
-.signup a:hover {
-  color: #ff7e5f;
-  text-decoration: underline;
+.signup a:hover,
+.signup a:focus-visible {
+  color: #ddb8ff;
+  text-shadow: 0 0 14px rgba(176, 108, 255, 0.22);
+  outline: none;
 }
 
-@media (max-width: 420px) {
+@media (max-width: 480px) {
+  .fields {
+    padding: 1.25rem 0.75rem;
+  }
+
   .card {
-    width: 90%;
-    padding: 30px 20px;
+    padding: 1.4rem;
+    border-radius: 24px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .card,
+  .fields button,
+  .fields input,
+  .signup a {
+    transition: none !important;
   }
 }
